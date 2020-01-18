@@ -1,22 +1,118 @@
-.App {
+body {
+  background-color: hsl(0, 0%, 98%);
+  font: 20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+#title {
   text-align: center;
+  font: 26px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+#recipe-list {
+  border: 3px ridge #0084cd;
+  overflow: auto;
+  height: 20vh;
+  border-radius: 12px;
+  width: 50vw;
+  margin: auto;
+  background-color: white;
 }
 
-.App-logo {
-  height: 40vmin;
+#dialog {
+  text-align: center;
+  position: fixed;
+  width: 500px;
+  min-width: 300px;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -200px;
+  box-shadow: 0px 0px 2px black;
+  border-radius: 15px;
+  background: #bfc0bf;
+  z-index: 1000;
+}
+#recipe-title {
+  border-bottom: 0.25px solid #0084cd;
+  padding: 4px;
+}
+#recipe-title:hover {
+  background-color: #e6e6e6;
+}
+#show-recipe-title {
+  margin-top: 2px;
+  margin-bottom: 8px;
+  font-size: 24px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  background-color: #e6e6e6;
+}
+.recipeDisplay {
+  background-color: #e6e6e6;
+  border-bottom: 0.25px solid #0084cd;
+}
+.recipeBox {
+  border: 3px ridge #0084cd;
+  border-radius: 12px;
+  overflow: auto;
+  height: 65vh;
+  width: 50vw;
+  margin: auto;
+  margin-top: 10px;
+  background-color: white;
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.fa-trash {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.fa-trash:hover {
+  color: #0084cd;
+}
+.fa-edit {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.fa-edit:hover {
+  color: #0084cd;
+}
+.recipe-display-pane {
+  display: inline-block;
+}
+.fa-plus {
+  position: relative;
+  left: 5px;
+}
+.fa-plus:hover {
+  color: #0084cd;
 }
 
-.App-link {
-  color: #09d3ac;
+.ingredients-heading,
+.directions-heading {
+  margin-left: 7px;
+}
+
+.list-directions {
+  margin-left: 6px;
+}
+#add-btn {
+  left: 600px;
+  top: 10px;
+  position: absolute;
+}
+.form-btns {
+  margin-bottom: 7px;
+}
+#edit-recipe {
+  resize: none;
+}
+#edit-ingredients {
+  resize: vertical;
+}
+#edit-steps {
+  resize: vertical;
+}
+.input-title {
+  margin-top: 7px;
 }
