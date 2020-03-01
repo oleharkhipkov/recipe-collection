@@ -97,12 +97,27 @@ body {
   margin-left: 6px;
 }
 #add-btn {
-  left: 600px;
+  left: 95%;
   top: 10px;
   position: absolute;
 }
 .form-btns {
   margin-bottom: 7px;
+}
+
+#close-dialog-btn {
+  margin-left: 2px;
+}
+
+#add-save-btn {
+  margin-right: 2px;
+}
+
+#add-save-btn:focus {
+  outline: 0;
+}
+#close-dialog-btn:focus {
+  outline: 0;
 }
 #edit-recipe {
   resize: none;
