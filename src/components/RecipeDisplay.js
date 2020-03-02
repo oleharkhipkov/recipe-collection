@@ -47,8 +47,26 @@ function RecipeDisplay(props) {
       );
     }
   }
+  if (props.recipes.length > 0) {
+    return <div>{showRecipe}</div>;
+  } else {
+    return (
+      <div className="recipeBox">
+        <div className="recipeDisplay">
+          <div className="recipe-display-pane">
+            <i id="edit" onClick={props.handleForm} className="fas fa-edit"></i>
 
-  return <div>{showRecipe}</div>;
+            <i onClick={props.handleDelete} className="fas fa-trash"></i>
+            <i
+              id="add-btn"
+              onClick={props.handleForm}
+              className="fas fa-plus"
+            ></i>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default RecipeDisplay;

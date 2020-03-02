@@ -36,11 +36,14 @@ class App extends React.Component {
 
   componentDidMount() {
     let recipes = JSON.parse(localStorage.getItem("_bschade18_recipes"));
-    let recipe = recipes[0].recipeTitle;
 
-    this.setState({
-      currentRecipe: recipe
-    });
+    if (recipes.length > 0) {
+      let recipe = recipes[0].recipeTitle;
+
+      this.setState({
+        currentRecipe: recipe
+      });
+    }
   }
 
   addRecipe = () => {
@@ -116,6 +119,12 @@ class App extends React.Component {
     newIndex = newIndex === 0 ? 1 : newIndex - 1;
 
     if (confirmDelete === true) {
+      if (recipes.length === 0) {
+        localStorage.setItem("_bschade18_recipes", JSON.stringify(filter));
+        this.setState({
+          currentRecipe: ""
+        });
+      }
       localStorage.setItem("_bschade18_recipes", JSON.stringify(filter));
       this.setState({
         recipes: filter,
