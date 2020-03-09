@@ -183,16 +183,32 @@ class App extends React.Component {
   };
 
   render() {
+    let pageMask = {
+      display: "none",
+      background: "rgba(0, 0, 0, 0.4)",
+      position: "fixed",
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      zIndex: 1
+    };
+
+    if (this.state.visibility) {
+      pageMask = {
+        display: "block",
+        background: "rgba(0, 0, 0, 0.5)",
+        position: "fixed",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        zIndex: 1
+      };
+    }
     return (
-      <div>
+      <div id="App">
         <h1 id="title">My Recipes</h1>
-        <RecipeList recipes={this.state.recipes} setCurrent={this.setCurrent} />
-        <RecipeDisplay
-          recipes={this.state.recipes}
-          currentRecipe={this.state.currentRecipe}
-          handleDelete={this.handleDelete}
-          handleForm={this.handleFormType}
-        />
         <RecipeForm
           recipes={this.state.recipes}
           recipeTitle={this.state.recipeTitle}
@@ -207,6 +223,15 @@ class App extends React.Component {
           onChange={this.onChange}
           handleEdit={this.handleEdit}
         />
+        <RecipeList recipes={this.state.recipes} setCurrent={this.setCurrent} />
+        <RecipeDisplay
+          recipes={this.state.recipes}
+          currentRecipe={this.state.currentRecipe}
+          handleDelete={this.handleDelete}
+          handleForm={this.handleFormType}
+        />
+
+        <div style={pageMask}></div>
       </div>
     );
   }

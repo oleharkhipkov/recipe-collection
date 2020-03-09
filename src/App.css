@@ -1,13 +1,26 @@
 body {
   background-color: hsl(0, 0%, 98%);
-  font: 20px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 24px "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
+
+#page-mask {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
 #title {
   text-align: center;
   font: 26px "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
+
 #recipe-list {
   border: 3px ridge #0084cd;
   overflow: auto;
@@ -18,20 +31,44 @@ body {
   background-color: white;
 }
 
-#dialog {
+.recipeBox {
+  border: 3px ridge #0084cd;
+  border-radius: 12px;
+  overflow: auto;
+  height: 65vh;
+  width: 50vw;
+  margin: auto;
+  margin-top: 10px;
+  background-color: white;
+  /* so that button could be positioned relative */
+  position: relative;
+}
+
+.dialog {
+  font-weight: 300;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   text-align: center;
-  position: fixed;
-  width: 500px;
+  width: 40vw;
+  height: 25em;
   min-width: 300px;
-  top: 50%;
-  left: 50%;
-  margin-left: -250px;
-  margin-top: -200px;
   box-shadow: 0px 0px 2px black;
   border-radius: 15px;
-  background: #bfc0bf;
-  z-index: 1000;
+  background: white;
+  border: 0.5px ridge black;
+  z-index: 2;
+  overflow: auto;
 }
+
+.input-title {
+  display: block;
+  margin: 0.5rem 0.5rem;
+}
+
 #recipe-title {
   border-bottom: 0.25px solid #0084cd;
   padding: 4px;
@@ -50,17 +87,6 @@ body {
 .recipeDisplay {
   background-color: #e6e6e6;
   border-bottom: 0.25px solid #0084cd;
-}
-.recipeBox {
-  border: 3px ridge #0084cd;
-  border-radius: 12px;
-  overflow: auto;
-  height: 65vh;
-  width: 50vw;
-  margin: auto;
-  margin-top: 10px;
-  background-color: white;
-  position: relative;
 }
 
 .fa-trash {
@@ -102,15 +128,37 @@ body {
   position: absolute;
 }
 .form-btns {
-  margin-bottom: 7px;
+  margin: 10px 0px;
 }
 
 #close-dialog-btn {
   margin-left: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 12px;
+  background-color: black;
+}
+
+#close-dialog-btn:hover {
+  background-color: #0084cd;
+  border: 1px solid #0084cd;
+  color: white;
 }
 
 #add-save-btn {
   margin-right: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+  padding: 5px 12px;
+}
+
+#add-save-btn:hover {
+  background-color: #0084cd;
+  border: 1px solid #0084cd;
+  color: white;
 }
 
 #add-save-btn:focus {
@@ -119,24 +167,65 @@ body {
 #close-dialog-btn:focus {
   outline: 0;
 }
-#edit-recipe {
-  resize: none;
-}
-#edit-ingredients {
-  resize: vertical;
-}
-#edit-steps {
-  resize: vertical;
-}
-.input-title {
-  margin-top: 7px;
+textarea::placeholder {
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
-@media only screen and (max-width: 768px) {
+textarea {
+  border: 0.5px solid black;
+}
+
+#edit-recipe {
+  resize: none;
+  font-size: 1.1rem;
+  width: 75%;
+}
+#edit-ingredients {
+  resize: none;
+  font-size: 1.1rem;
+  width: 75%;
+  height: 20%;
+}
+#edit-steps {
+  resize: none;
+  font-size: 1.1rem;
+  width: 75%;
+  height: 37%;
+}
+
+@media only screen and (max-width: 600px) {
   #recipe-list {
     width: 85vw;
   }
   .recipeBox {
     width: 85vw;
+  }
+
+  body {
+    font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .dialog {
+    width: 90vw;
+    height: 80vh;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 900px) {
+  #recipe-list {
+    width: 60vw;
+  }
+  .recipeBox {
+    width: 60vw;
+  }
+
+  body {
+    font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .dialog {
+    width: 55vw;
+    height: 50vh;
   }
 }
