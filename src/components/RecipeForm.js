@@ -1,23 +1,33 @@
-import React from "react";
+import React from 'react';
 
-function RecipeForm(props) {
-  if (props.visibility) {
-    return (
+function RecipeForm({
+  visibility,
+  dialogMode,
+  onChange,
+  recipeTitle,
+  recipeIngredients,
+  recipeSteps,
+  addRecipe,
+  handleEdit,
+  toggleVisibility,
+}) {
+  return (
+    visibility && (
       <div className="dialog">
         <label className="input-title">
-          {props.dialogMode === "add" ? "Add Recipe" : "Edit Recipe"}
+          {dialogMode === 'add' ? 'Add Recipe' : 'Edit Recipe'}
           <br />
         </label>
         <textarea
-          onChange={props.onChange}
+          onChange={onChange}
           id="edit-recipe"
           placeholder="Recipe Name"
           name="recipeTitle"
-          value={props.recipeTitle}
+          value={recipeTitle}
           type="text"
           rows="1"
         >
-          {props.recipeTitle}
+          {recipeTitle}
         </textarea>
         <br />
         <label className="input-title">
@@ -26,13 +36,13 @@ function RecipeForm(props) {
         </label>
         <textarea
           id="edit-ingredients"
-          value={props.recipeIngredients}
+          value={recipeIngredients}
           name="recipeIngredients"
-          onChange={props.onChange}
+          onChange={onChange}
           placeholder='Separate each ingredient with a "/" : Eggs / Flour / Cookie Mix'
           type="text"
         >
-          {props.recipeIngredients}
+          {recipeIngredients}
         </textarea>
         <br />
         <label className="input-title">
@@ -41,34 +51,30 @@ function RecipeForm(props) {
         </label>
         <textarea
           id="edit-steps"
-          value={props.recipeSteps}
+          value={recipeSteps}
           name="recipeSteps"
-          onChange={props.onChange}
+          onChange={onChange}
           placeholder='Seperate each direction with a "/" : Mix eggs and flour in a bowl / Add cookie mix / Cook in oven '
           type="text"
         >
-          {props.recipeSteps}
+          {recipeSteps}
         </textarea>
 
         <div className="form-btns">
           <button
             id="add-save-btn"
-            onClick={
-              props.dialogMode === "add" ? props.addRecipe : props.handleEdit
-            }
+            onClick={dialogMode === 'add' ? addRecipe : handleEdit}
           >
-            {props.dialogMode === "add" ? "Add" : "Save"}
+            {dialogMode === 'add' ? 'Add' : 'Save'}
           </button>
 
-          <button id="close-dialog-btn" onClick={props.toggleVisibility}>
+          <button id="close-dialog-btn" onClick={toggleVisibility}>
             Close
           </button>
         </div>
       </div>
-    );
-  } else {
-    return <div></div>;
-  }
+    )
+  );
 }
 
 export default RecipeForm;
