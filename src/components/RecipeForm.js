@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function RecipeForm({
   visibility,
@@ -76,5 +77,17 @@ function RecipeForm({
     )
   );
 }
+
+RecipeForm.propTypes = {
+  visibility: PropTypes.bool.isRequired,
+  dialogMode: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  recipeTitle: PropTypes.string.isRequired,
+  recipeIngredients: PropTypes.string.isRequired,
+  recipeSteps: PropTypes.string.isRequired,
+  addRecipe: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+  toggleVisibility: PropTypes.func.isRequired,
+};
 
 export default RecipeForm;

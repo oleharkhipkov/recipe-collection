@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const RecipeList = ({ recipes, setCurrent }) => (
   <div id="recipe-list">
@@ -9,5 +10,10 @@ const RecipeList = ({ recipes, setCurrent }) => (
     ))}
   </div>
 );
+
+RecipeList.propTypes = {
+  recipes: PropTypes.array.isRequired,
+  setCurrent: PropTypes.func.isRequired,
+};
 
 export default RecipeList;

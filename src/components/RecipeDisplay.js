@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function RecipeDisplay({ recipes, currentRecipe, handleForm, handleDelete }) {
   let showRecipe;
@@ -54,5 +55,12 @@ function RecipeDisplay({ recipes, currentRecipe, handleForm, handleDelete }) {
     );
   }
 }
+
+RecipeDisplay.propTypes = {
+  recipes: PropTypes.array.isRequired,
+  currentRecipe: PropTypes.string.isRequired,
+  handleForm: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+};
 
 export default RecipeDisplay;
